@@ -1,0 +1,388 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Damak Beauty Parlor — Soft Feminine Luxury Palette */
+    /* Cream/warm white background */
+    --background: 0.98 0.008 60;
+    --foreground: 0.22 0.02 40;
+
+    /* Card — warm white */
+    --card: 0.995 0.005 60;
+    --card-foreground: 0.22 0.02 40;
+
+    /* Popover */
+    --popover: 0.995 0.005 60;
+    --popover-foreground: 0.22 0.02 40;
+
+    /* Primary — rose gold / dusty rose */
+    --primary: 0.52 0.11 22;
+    --primary-foreground: 0.98 0.005 60;
+
+    /* Secondary — warm blush */
+    --secondary: 0.95 0.03 30;
+    --secondary-foreground: 0.35 0.05 20;
+
+    /* Muted — soft cream */
+    --muted: 0.96 0.012 55;
+    --muted-foreground: 0.50 0.03 35;
+
+    /* Accent — peach/apricot */
+    --accent: 0.92 0.05 45;
+    --accent-foreground: 0.28 0.04 25;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders */
+    --border: 0.88 0.025 40;
+    --input: 0.88 0.025 40;
+    --ring: 0.52 0.11 22;
+
+    /* Charts */
+    --chart-1: 0.62 0.13 22;
+    --chart-2: 0.75 0.09 40;
+    --chart-3: 0.82 0.06 55;
+    --chart-4: 0.55 0.08 18;
+    --chart-5: 0.68 0.11 30;
+
+    /* Sidebar */
+    --sidebar: 0.98 0.008 60;
+    --sidebar-foreground: 0.22 0.02 40;
+    --sidebar-primary: 0.52 0.11 22;
+    --sidebar-primary-foreground: 0.98 0.005 60;
+    --sidebar-accent: 0.92 0.05 45;
+    --sidebar-accent-foreground: 0.28 0.04 25;
+    --sidebar-border: 0.88 0.025 40;
+    --sidebar-ring: 0.52 0.11 22;
+
+    /* Custom palette tokens */
+    --blush: 0.88 0.07 15;
+    --peach: 0.92 0.08 45;
+    --rose-gold: 0.58 0.10 24;
+    --cream: 0.97 0.015 65;
+    --deep-rose: 0.40 0.10 18;
+    --text-dark: 0.20 0.02 35;
+    --text-medium: 0.42 0.04 30;
+    --gold-accent: 0.76 0.10 68;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Georgia', serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  p, span, label, input, textarea, button {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Georgia', serif;
+  }
+
+  .font-sans-body {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+  }
+
+  .text-gradient-rose {
+    background: linear-gradient(135deg, oklch(0.58 0.10 24), oklch(0.72 0.09 40), oklch(0.62 0.13 22));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-hero-overlay {
+    background: linear-gradient(
+      135deg,
+      oklch(0.15 0.04 25 / 0.72) 0%,
+      oklch(0.28 0.06 20 / 0.55) 50%,
+      oklch(0.20 0.05 30 / 0.40) 100%
+    );
+  }
+
+  .bg-blush-section {
+    background: linear-gradient(
+      160deg,
+      oklch(0.97 0.015 65) 0%,
+      oklch(0.95 0.03 30) 50%,
+      oklch(0.97 0.015 65) 100%
+    );
+  }
+
+  .bg-peach-section {
+    background: linear-gradient(
+      145deg,
+      oklch(0.97 0.022 48) 0%,
+      oklch(0.95 0.04 35) 40%,
+      oklch(0.96 0.025 55) 100%
+    );
+  }
+
+  .bg-cream-section {
+    background-color: oklch(0.97 0.012 58);
+  }
+
+  .bg-footer-dark {
+    background: linear-gradient(
+      135deg,
+      oklch(0.22 0.04 25) 0%,
+      oklch(0.18 0.03 20) 100%
+    );
+  }
+
+  .card-luxury {
+    background: oklch(0.995 0.005 60);
+    border: 1px solid oklch(0.88 0.025 40);
+    box-shadow:
+      0 4px 6px -1px oklch(0.52 0.11 22 / 0.08),
+      0 2px 4px -2px oklch(0.52 0.11 22 / 0.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-luxury:hover {
+    box-shadow:
+      0 20px 25px -5px oklch(0.52 0.11 22 / 0.12),
+      0 8px 10px -6px oklch(0.52 0.11 22 / 0.08);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary-rose {
+    background: linear-gradient(135deg, oklch(0.52 0.11 22), oklch(0.44 0.10 18));
+    color: oklch(0.98 0.005 60);
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px oklch(0.52 0.11 22 / 0.35);
+  }
+
+  .btn-primary-rose:hover {
+    background: linear-gradient(135deg, oklch(0.46 0.12 22), oklch(0.38 0.11 18));
+    box-shadow: 0 6px 20px oklch(0.52 0.11 22 / 0.45);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline-rose {
+    background: transparent;
+    color: oklch(0.52 0.11 22);
+    border: 2px solid oklch(0.52 0.11 22);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-rose:hover {
+    background: oklch(0.52 0.11 22);
+    color: oklch(0.98 0.005 60);
+  }
+
+  .owner-frame {
+    border: 4px solid oklch(0.88 0.05 40);
+    box-shadow:
+      0 0 0 8px oklch(0.95 0.03 30 / 0.4),
+      0 25px 50px oklch(0.20 0.04 20 / 0.35),
+      inset 0 0 0 1px oklch(0.80 0.07 30 / 0.3);
+  }
+
+  /* Ornamental diamond divider — used only on hero/primary headings */
+  .section-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.25rem auto 0;
+  }
+
+  .section-ornament::before,
+  .section-ornament::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(0.72 0.09 40));
+  }
+
+  .section-ornament::after {
+    background: linear-gradient(90deg, oklch(0.72 0.09 40), transparent);
+  }
+
+  .section-ornament-diamond {
+    width: 6px;
+    height: 6px;
+    background: oklch(0.58 0.10 24);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* Service card accent — colored left border keyed to category */
+  .service-card {
+    background: oklch(0.995 0.005 60);
+    border: 1px solid oklch(0.90 0.020 40);
+    border-left: 3px solid oklch(0.58 0.10 24);
+    box-shadow: 0 2px 8px oklch(0.52 0.11 22 / 0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-left-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, oklch(0.52 0.11 22 / 0.03), transparent 60%);
+    pointer-events: none;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 12px 28px oklch(0.52 0.11 22 / 0.12);
+    transform: translateY(-3px);
+    border-left-color: oklch(0.48 0.12 22);
+  }
+
+  /* Testimonial card — warm blush with left accent */
+  .testimonial-card {
+    background: linear-gradient(150deg, oklch(0.985 0.010 40) 0%, oklch(0.975 0.018 30) 100%);
+    border: 1px solid oklch(0.90 0.025 35);
+    border-left: 4px solid oklch(0.58 0.10 24);
+    box-shadow: 0 4px 16px oklch(0.52 0.11 22 / 0.07);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    box-shadow: 0 16px 32px oklch(0.52 0.11 22 / 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* Pull-quote text style */
+  .quote-body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Georgia', serif;
+    font-style: italic;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: oklch(0.36 0.03 30);
+  }
+
+  .quote-body::before {
+    content: '\201C';
+    font-size: 1.4em;
+    line-height: 0;
+    vertical-align: -0.35em;
+    margin-right: 0.1em;
+    color: oklch(0.62 0.10 24);
+  }
+
+  .quote-body::after {
+    content: '\201D';
+    font-size: 1.4em;
+    line-height: 0;
+    vertical-align: -0.35em;
+    margin-left: 0.1em;
+    color: oklch(0.62 0.10 24);
+  }
+
+  /* Avatar initial circle */
+  .avatar-initial {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, oklch(0.62 0.11 22), oklch(0.50 0.10 18));
+    color: oklch(0.98 0.005 60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Georgia', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .section-heading-line-left::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, oklch(0.58 0.10 24), oklch(0.72 0.09 40));
+    margin: 1rem 0 0;
+  }
+
+  /* Scrollbar hide utility — for horizontal scroll tabs */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Safe area bottom padding for mobile sticky bars */
+  .safe-area-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  /* Touch action utility */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Scroll animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+
+  /* Decorative divider */
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: oklch(0.72 0.09 40);
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(0.80 0.07 40), transparent);
+  }
+}
